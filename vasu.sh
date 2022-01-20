@@ -20,4 +20,4 @@ DATE=$(date +%F)
 
 echo nor,hhh,hbbhb,today dte is $DATE
 
-echo course name=course_name
+echo course name = $course_name
