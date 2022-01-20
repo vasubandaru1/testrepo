@@ -1,4 +1,6 @@
-cqkjgcqecoie
-qceoiuwqgcoeiqc
-wqbcoiwqevioe
-wbcoiewvcoewivoiew
+#!/bin/bash
+
+echo cqkjgcqecoie
+echo qceoiuwqgcoeiqc
+echo wqbcoiwqevioe
+echo wbcoiewvcoewivoiew
