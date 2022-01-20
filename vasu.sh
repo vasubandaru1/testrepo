@@ -15,3 +15,7 @@ x=10
 y=20
 
 echo ${x}x${y}=200
+
+DATE=$(date+%F)
+
+echo nor,hhh,hbbhb,today dte is $DATE
