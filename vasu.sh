@@ -9,3 +9,9 @@ b=20
 
 echo value of a=$a
 echo value of b=$b
+
+x=10
+
+y=20
+
+echo ${x}x${y}=200
