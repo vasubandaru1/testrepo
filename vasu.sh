@@ -19,3 +19,5 @@ echo ${x}x${y}=200
 DATE=$(date +%F)
 
 echo nor,hhh,hbbhb,today dte is $DATE
+
+echo course name=course_name
