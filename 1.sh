@@ -11,3 +11,5 @@ echo "@ = $@"
 
 
 echo "# = $#"
+
+echo -e "your name is = $1\nyour age is = $2"
