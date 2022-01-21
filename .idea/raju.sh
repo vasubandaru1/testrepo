@@ -13,6 +13,7 @@ echo -e "mother\nfather"
 a=100
 b=200
 c=39
+echo -e "vasu"
 
 echo -e "the value of a =$a"
 echo -e "the value of b =$b"
