@@ -1,5 +1,5 @@
 help:
-     @grep '####' Makefile | grep -v grep | sed -e 's/####//'
+     @grep "####" Makefile | grep -v grep | sed -e "s/####//"
 
 one: #### target one
     @echo one
