@@ -6,7 +6,7 @@ printf() {
 }
 
 stat() {
-  if [ $1 -eq 0];
+  if [ $1 -eq 0 ];
   then
     echo -e "\e[1;32mSUCESS\e[0m"
   else
