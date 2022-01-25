@@ -21,7 +21,7 @@ rm -f $LOG
 print "Installing nginx"
 yum install nginx -y &>>$LOG
 stat $?
-
+exit
 print "Enabling nginx"
 systemctl enable nginx &>>$LOG
 stat $?
@@ -29,7 +29,7 @@ stat $?
 print "starting nginx"
 systemctl start nginx &>>$LOG
 stat $?
-exit
+
 print "download the html files"
 curl -s -L -o /tmp/frontend.zip "https://github.com/roboshop-devops-project/frontend/archive/main.zip" &>>$LOG
 stat $?
