@@ -13,11 +13,11 @@ stat $?
 print "update mongodb config"
 sed -i -e 's/127.0.0.1/0.0.0.0/g' /etc/mongod.conf &>>$LOG
 stat $?
-exit
+
 print "start mongodb"
 systemctl restart mongod &>>$LOG
 stat $?
-
+exit
 print "Enable mongodb service"
 systemctl enable mongod &>>$LOG
 stat $?
