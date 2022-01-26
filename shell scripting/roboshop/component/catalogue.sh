@@ -7,7 +7,7 @@ yum install -y gcc-c++ make &>>$LOG
 curl -s -L https://rpm.nodesource.com/setup_6.x | sudo -E bash - &>>$LOG
 yum install -y nodejs &>>$LOG
 stat $?
-exit
+
 print "Add roboshop user"
 id roboshop &>>$LOG
 if [ $? -eq 0 ]; then
