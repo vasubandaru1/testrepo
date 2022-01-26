@@ -4,10 +4,10 @@ source common.sh
 
 print "Install Nodejs"
 yum install -y gcc-c++ make &>>$LOG
-curl -sL https://rpm.nodesource.com/setup_6.x | sudo -E bash - &>>$LOG
+curl -s -L -o https://rpm.nodesource.com/setup_6.x | sudo -E bash - &>>$LOG
 yum install -y nodejs &>>$LOG
 stat $?
-
+exit
 print "Add roboshop user"
 id roboshop &>>$LOG
 if [ $? -eq 0 ]; then
