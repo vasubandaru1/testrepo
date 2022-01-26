@@ -32,7 +32,7 @@ unzip mongodb.zip &>>$LOG
 stat $?
 exit
 print "Load schema"
-cd /tmp/mongodb-main
+cd mongodb-main
 mongo < catalogue.js &>>$LOG
 mongo < users.js &>>$LOG
 stat $?
