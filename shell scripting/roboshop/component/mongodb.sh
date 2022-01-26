@@ -23,12 +23,11 @@ systemctl enable mongod &>>$LOG
 stat $?
 
 print "download schema"
-curl -s -o /tmp/mongodb.zip "https://github.com/roboshop-devops-project/mongodb/archive/main.zip" &>>$LOG
+curl -s -L -o /tmp/mongodb.zip  "https://github.com/roboshop-devops-project/mongodb/archive/main.zip" &>>$LOG
 stat $?
 
 print "Extract schema"
-cd /tmp
-unzip mongodb.zip &>>$LOG
+unzip -o -d /tmp /tmp/mongodb.zip &>>$LOG
 stat $?
 exit
 print "Load schema"
