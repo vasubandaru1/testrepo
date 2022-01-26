@@ -29,9 +29,9 @@ stat $?
 print "Extract schema"
 unzip -o -d /tmp /tmp/mongodb.zip &>>$LOG
 stat $?
-exit
+
 print "Load schema"
-cd mongodb-main
+cd /tmp/mongodb-main
 mongo < catalogue.js &>>$LOG
 mongo < users.js &>>$LOG
 stat $?
