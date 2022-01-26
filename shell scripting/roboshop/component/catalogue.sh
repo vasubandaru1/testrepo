@@ -37,4 +37,6 @@ print "Nodejs dependecies"
 npm install --unsafe-perm &>>$LOG
 stat $?
 
-
+print "Fix app permissions"
+chown -R roboshop:roboshop /home/roboshop
+stat $?
