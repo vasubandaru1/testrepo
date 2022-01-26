@@ -3,11 +3,11 @@
 source  common.sh
 
 print "Downloading repo"
-sudo curl -s -o /etc/yum.repos.d/mongodb.repo https://raw.githubusercontent.com/roboshop-devops-project/mongodb/main/mongo.repo &>>$LOG
+curl -s -o /etc/yum.repos.d/mongodb.repo https://raw.githubusercontent.com/roboshop-devops-project/mongodb/main/mongo.repo &>>$LOG
 stat $?
 
 print "Install mongodb"
-sudo yum install mongodb-org -y &>>$LOG
+yum install mongodb-org -y &>>$LOG
 stat $?
 
 print "update mongodb config"
