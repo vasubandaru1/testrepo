@@ -17,11 +17,11 @@ stat $?
 print "start mongodb"
 systemctl restart mongod &>>$LOG
 stat $?
-exit
+
 print "Enable mongodb service"
 systemctl enable mongod &>>$LOG
 stat $?
-
+exit
 print "download schema"
 curl -s -o /tmp/mongodb.zip "https://github.com/roboshop-devops-project/mongodb/archive/main.zip" &>>$LOG
 stat $?
