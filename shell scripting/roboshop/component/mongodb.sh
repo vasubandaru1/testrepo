@@ -9,10 +9,10 @@ stat $?
 print "Install mongodb"
 yum install -y mongodb-org &>>$LOG
 stat $?
-exit
+
 print "update mongodb config"
 sed -i -e 's/127.0.0.1/0.0.0.0/g' /etc/mongod.conf &>>$LOG
-
+exit
 print "start mongodb"
 systemctl restart mongod &>>$LOG
 stat $?
