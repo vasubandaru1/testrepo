@@ -8,3 +8,6 @@ count=$(aws ec2 describe-instances --filters "Name=tag:Name,Values=$1" | jq ".Re
      echo "Instance already exists"
 
 fi
+IP=$(aws ec2 describe-instances --filters "Name=tag:Name,Values=$1" | jq ".Reservations[].Instances[].PrivateIpAddress" | grep -v null | wc -l)
+sed -e "s/DNSname/$1.roboshop.internal/" -e"s/Ipaddress/$(IP)/" record.jsm >/tmp/record.jsm
+aws route53 change-resource-record-sets --hosted-zone-id HOSTED-ZONE-ID --change-batch file:///tmp/record.jsm | jq
