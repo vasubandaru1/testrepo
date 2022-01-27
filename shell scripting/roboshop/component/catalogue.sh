@@ -2,6 +2,15 @@
 
 source common.sh
 
+COMPONENT_NAME=Catalogue
+COMPONENT=catalogue
+
+Nodejs
+
+
+
+exit
+
 print "Install Nodejs"
 yum install -y gcc-c++ make &>>$LOG
 curl -s -L https://rpm.nodesource.com/setup_6.x | sudo -E bash - &>>$LOG
