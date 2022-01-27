@@ -40,3 +40,17 @@ stat $?
 print "Fix app permissions"
 chown -R roboshop:roboshop /home/roboshop
 stat $?
+
+print "update DNS records in systemD config"
+sed -i -e "s/MONGO_DNSNAME/mongodb.roboshop.internal/" /home/roboshop/catalogue/systemd.service &>>$LOG
+stat$?
+
+print "copy systemd file"
+mv /home/roboshop/catalogue/systemd.service /etc/systemd/system/catalogue.service
+stat$?
+
+print "start catalogue service"
+systemctl daemon-reload &>>$LOG && systemctl restart catalogue &>>$LOG && systemctl enable catalogue &>>$LOG
+stat$?
+
+
