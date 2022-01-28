@@ -31,5 +31,5 @@ DOWNLOAD '/tmp'
 
 print "load schema"
  cd /tmp/$COMPONENT-main
- mysql -u root -pRoboShop@1 <shipping.sql &>>$LOG
+ $COMPONENT -u root -pRoboShop@1 <shipping.sql &>>$LOG
  stat $?
