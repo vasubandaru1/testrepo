@@ -14,14 +14,14 @@ print "Start mysql sevice"
 systemctl enable mysqld &>>$LOG && systemctl start mysqld &>>$LOG
 stat $?
 
-DEFAULT_PASSWORD=$(grep "temporary password" /var/log/mysqld.log | awk '{print $NF}')
+DEFAULT_PASSWORD=$(grep 'temporary password' /var/log/mysqld.log | awk '{print $NF}')
 NEW_PASSWORD=roboshop@1
 
 echo 'show databases;' | mysql -uroot -p'${NEW_PASSWORD}' &>>$LOG
 if [ $? -ne 0 ]; then
 print "changing the DEFAULT_PASSWORD"
 echo -e "ALTER USER 'root'@'localhost' IDENTIFIED BY '${NEW_PASSWORD}';\nuninstall plugin validate_password;" >/tmp/pass.sql
-mysql --connect-expired-password -uroot -p"${DEFAULT_PASSWORD}" </tmp/pass.sql &>>$LOG
+mysql --connect-expired-password -uroot -p "${DEFAULT_PASSWORD}" </tmp/pass.sql &>>$LOG
 stat $?
 fi
 exit
