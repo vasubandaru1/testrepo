@@ -44,15 +44,11 @@ else
 fi
 stat $?
 
-DOWNLOAD '/home/roboshop'
-
 print "Remove old content"
 rm -rf /home/roboshop/$COMPONENT
 stat $?
 
-print "Extract $COMPONENT_NAME"
-unzip -o -d /home/roboshop /tmp/$COMPONENT.zip &>>$LOG
-stat $?
+DOWNLOAD '/home/roboshop'
 
 print "copy content"
 mv /home/roboshop/$COMPONENT-main /home/roboshop/$COMPONENT
