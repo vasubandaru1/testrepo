@@ -20,22 +20,15 @@ stat $?
 DEFAULT_PASSWORD=$(grep 'temporary password' /var/log/mysqld.log | awk '{print $NF}')
 NEW_PASSWORD='Roboshop@1'
 
-echo 'show databases;' | mysql -uroot -p'${NEW_PASSWORD}' &>>$LOG
+echo 'show databases;' | mysql -u root -p'${NEW_PASSWORD}' &>>$LOG
 if [ $? -ne 0 ]; then
 print "changing the DEFAULT_PASSWORD"
-echo -e "ALTER USER 'root'@'localhost' IDENTIFIED BY '${NEW_PASSWORD}';\nuninstall plugin validate_password;" >/tmp/pass.sql mysql --connect-expired-password -uroot -p"${DEFAULT_PASSWORD}" </tmp/pass.sql &>>$LOG
+echo -e "ALTER USER 'root'@'localhost' IDENTIFIED BY '${NEW_PASSWORD}';\nuninstall plugin validate_password;" >/tmp/pass.sql mysql --connect-expired-password -u root -p"${DEFAULT_PASSWORD}" </tmp/pass.sql &>>$LOG
 stat $?
 fi
 
-#DOWNLOAD '/tmp'
+DOWNLOAD '/tmp'
 
- print "Download $COMPONENT_NAME"
-  curl -s -L -o /tmp/${COMPONENT}.zip "https://github.com/roboshop-devops-project/${COMPONENT}/archive/main.zip" &>>$LOG
-  stat $?
-
-print "Extract $COMPONENT_NAME"
-unzip -o -d /tmp /tmp/${COMPONENT}.zip &>>$LOG
- stat $?
 
 print "load schema"
 cd /tmp/mysql-main
