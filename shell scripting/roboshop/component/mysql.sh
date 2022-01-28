@@ -27,10 +27,9 @@ echo -e "ALTER USER 'root'@'localhost' IDENTIFIED BY '${NEW_PASSWORD}';\nuninsta
 stat $?
 fi
 
-DOWNLOAD
+DOWNLOAD '/tmp'
 
-exit
-# cd /tmp
-# unzip mysql.zip
-# cd mysql-main
-# mysql -u root -pRoboShop@1 <shipping.sql
+print "load schema"
+ cd /tmp/$COMPONENT-main
+ mysql -u root -pRoboShop@1 <shipping.sql &>>$LOG
+ stat $?
