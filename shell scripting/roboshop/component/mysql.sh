@@ -2,7 +2,7 @@
 
 source common.sh
 
-COMPONENT_NEME=Mysql
+COMPONENT_NAME=Mysql
 COMPONENT=mysql
 
 print "Download Mysql repos"
@@ -31,5 +31,5 @@ DOWNLOAD '/tmp'
 
 print "load schema"
 cd /tmp/mysql-main
-mysql -u root -proboShop@1 <shipping.sql &>>$LOG
+mysql -u root -p roboShop@1 <shipping.sql &>>$LOG
 stat $?
