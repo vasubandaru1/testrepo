@@ -30,6 +30,6 @@ fi
 DOWNLOAD '/tmp'
 
 print "load schema"
- cd /tmp/$COMPONENT-main
- $COMPONENT -u root -pRoboShop@1 <shipping.sql &>>$LOG
- stat $?
+cd /tmp/mysql-main
+mysql -u root -proboShop@1 <shipping.sql &>>$LOG
+stat $?
