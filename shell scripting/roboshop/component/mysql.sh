@@ -27,9 +27,17 @@ echo -e "ALTER USER 'root'@'localhost' IDENTIFIED BY '${NEW_PASSWORD}';\nuninsta
 stat $?
 fi
 
-DOWNLOAD '/tmp'
+#DOWNLOAD '/tmp'
+
+ print "Download $COMPONENT_NAME"
+  curl -s -L -o /tmp/${COMPONENT}.zip "https://github.com/roboshop-devops-project/${COMPONENT}/archive/main.zip" &>>$LOG
+  stat $?
+
+print "Extract $COMPONENT_NAME"
+unzip -o -d /tmp /tmp/${COMPONENT}.zip &>>$LOG
+ stat $?
 
 print "load schema"
 cd /tmp/mysql-main
-sudo mysql -uroot -pRoboshop@1 <pass.sql &>>$LOG
+sudo mysql -u root -pRoboshop@1 <shipping.sql &>>$LOG
 stat $?
