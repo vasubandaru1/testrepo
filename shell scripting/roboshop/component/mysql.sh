@@ -29,8 +29,7 @@ fi
 
 DOWNLOAD '/tmp'
 
-
 print "load schema"
 cd /tmp/mysql-main
-mysql -u root -pRoboshop@1 <shipping.sql &>>$LOG
+mysql -uroot -pRoboshop@1 <shipping.sql &>>$LOG
 stat $?
