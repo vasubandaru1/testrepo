@@ -2,6 +2,9 @@
 
 source common.sh
 
+COMPONENT_NEME=Mysql
+COMPONENT=mysql
+
 print "Download Mysql repos"
 curl -s -L -o /etc/yum.repos.d/mysql.repo https://raw.githubusercontent.com/roboshop-devops-project/mysql/main/mysql.repo &>>$LOG
 stat $?
@@ -23,17 +26,10 @@ print "changing the DEFAULT_PASSWORD"
 echo -e "ALTER USER 'root'@'localhost' IDENTIFIED BY '${NEW_PASSWORD}';\nuninstall plugin validate_password;" >/tmp/pass.sql mysql --connect-expired-password -uroot -p "${DEFAULT_PASSWORD}" </tmp/pass.sql &>>$LOG
 stat $?
 fi
+
+DOWNLOAD
+
 exit
-
-
-Shipping Service
-So we need to load that schema into the database, So those applications will detect them and run accordingly.
-
-To download schema, Use the following command
-
-# curl -s -L -o /tmp/mysql.zip "https://github.com/roboshop-devops-project/mysql/archive/main.zip"
-Load the schema for Services.
-
 # cd /tmp
 # unzip mysql.zip
 # cd mysql-main

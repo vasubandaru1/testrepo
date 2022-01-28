@@ -18,6 +18,11 @@ stat() {
 LOG=/tmp/roboshop.log
 rm -f $LOG
 
+DOWNLOAD() {
+  print "Download $COMPONENT_NAME"
+  curl -s -L -o /tmp/$COMPONENT.zip "https://github.com/roboshop-devops-project/catalogue/archive/main.zip" &>>$LOG
+  stat $?
+}
 Nodejs() {
 
 print "Install Nodejs"
@@ -35,9 +40,7 @@ else
 fi
 stat $?
 
-print "Download $COMPONENT_NAME"
-curl -s -L -o /tmp/$COMPONENT.zip "https://github.com/roboshop-devops-project/catalogue/archive/main.zip" &>>$LOG
-stat $?
+DOWNLOAD
 
 print "Remove old content"
 rm -rf /home/roboshop/$COMPONENT
