@@ -31,5 +31,5 @@ DOWNLOAD '/tmp'
 
 print "load schema"
 cd /tmp/mysql-main
-sudo mysql -uroot -pRoboshop@1 <shipping.sql &>>$LOG
+sudo mysql -uroot -pRoboshop@1 <pass.sql &>>$LOG
 stat $?
