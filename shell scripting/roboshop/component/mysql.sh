@@ -18,7 +18,7 @@ systemctl enable mysqld &>>$LOG && systemctl start mysqld &>>$LOG
 stat $?
 
 DEFAULT_PASSWORD=$(grep 'temporary password' /var/log/mysqld.log | awk '{print $NF}')
-NEW_PASSWORD='Roboshop@1'
+NEW_PASSWORD='roboshop'
 
 echo 'show databases;' | mysql -u root -p'${NEW_PASSWORD}' &>>$LOG
 if [ $? -ne 0 ]; then
@@ -31,5 +31,5 @@ DOWNLOAD '/tmp'
 
 print "load schema"
 cd /tmp/mysql-main
-mysql -u root -pRoboshop@1 <shipping.sql &>>$LOG
+mysql -u root -proboshop <shipping.sql &>>$LOG
 stat $?
