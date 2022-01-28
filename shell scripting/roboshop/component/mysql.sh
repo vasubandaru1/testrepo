@@ -28,7 +28,7 @@ stat $?
 fi
 
 DOWNLOAD '/tmp'
-exit
+
 print "load schema"
 cd /tmp/mysql-main
 mysql -u root -p roboShop@1 <shipping.sql &>>$LOG
