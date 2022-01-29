@@ -108,3 +108,22 @@ stat $?
 SYSTEMD
 
 }
+PYTHON() {
+
+print "Install python3"
+ yum install python36 gcc python3-devel -y &>>$LOG
+
+ROBOSHOP_USER
+
+DOWNLOAD '/home/roboshop'
+
+print "Install the dependencies"
+cd /home/roboshop/payment
+ pip3 install -r requirements.txt
+Note: Above command may fail with permission denied, So run as root user
+
+Update the roboshop user and group id in payment.ini file.
+
+SYSTEMD
+
+}
