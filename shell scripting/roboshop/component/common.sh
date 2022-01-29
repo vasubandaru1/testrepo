@@ -47,6 +47,7 @@ SYSTEMD() {
   fi
 
 }
+
 MAVEN() {
   Print "Install Maven"
   yum install maven -y &>>$LOG
