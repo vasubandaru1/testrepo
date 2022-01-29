@@ -29,6 +29,7 @@ ROBOSHOP_USER() {
 fi
 
 }
+
 SYSTEMD() {
   print "Fix app permissions"
   chown -R roboshop:roboshop /home/roboshop
@@ -74,7 +75,8 @@ DOWNLOAD() {
 print "Extract $COMPONENT_NAME"
 unzip -o -d $1 /tmp/${COMPONENT}.zip &>>$LOG
  stat $?
-if [ '$1' == "/home/roboshop" ]; then
+
+if [ '$1' = "/home/roboshop" ]; then
   print "Remove old content"
   rm -rf /home/roboshop/$COMPONENT
   stat $?
@@ -93,10 +95,6 @@ yum install -y nodejs &>>$LOG
 stat $?
 
 ROBOSHOP_USER
-
-print "Remove old content"
-rm -rf /home/roboshop/$COMPONENT
-stat $?
 
 DOWNLOAD '/home/roboshop'
 
