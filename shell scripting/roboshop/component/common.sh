@@ -84,7 +84,11 @@ if [ "$1" = "/home/roboshop" ]; then
   print "copy content"
  mv /home/roboshop/$COMPONENT-main /home/roboshop/$COMPONENT
  stat $?
+
+ fi
+
 }
+
 
 Nodejs() {
 print "Install Nodejs"
