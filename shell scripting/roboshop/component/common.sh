@@ -43,7 +43,7 @@ SYSTEMD() {
   mv /home/roboshop/$COMPONENT/systemd.service /etc/systemd/system/$COMPONENT.service
   stat $?
 
-  print "start catalogue service"
+  print "start $COMPONENT_NAME service"
   systemctl daemon-reload &>>$LOG && systemctl restart $COMPONENT &>>$LOG && systemctl enable $COMPONENT &>>$LOG
   stat $?
 
