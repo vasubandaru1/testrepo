@@ -27,6 +27,7 @@ ROBOSHOP_USER() {
     useradd roboshop &>>$LOG
   stat $?
 fi
+
 }
 SYSTEMD() {
   print "Fix app permissions"
@@ -44,7 +45,8 @@ SYSTEMD() {
   print "start catalogue service"
   systemctl daemon-reload &>>$LOG && systemctl restart $COMPONENT &>>$LOG && systemctl enable $COMPONENT &>>$LOG
   stat $?
-  fi
+
+fi
 
 }
 
