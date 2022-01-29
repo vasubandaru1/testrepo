@@ -35,15 +35,15 @@ SYSTEMD() {
 
   print "update DNS records in systemD config"
   sed -i -e "s/MONGO_DNSNAME/mongodb.roboshop.internal/" -e "s/REDIS_ENDPOINT/redis.roboshop.internal/" -e "s/MONGO_ENDPOINT/mongodb.roboshop.internal/" -e "s/CARTENDPOINT/cart.roboshop.internal/" -e "s/DBHOST/mysql.roboshop.internal/" /home/roboshop/$COMPONENT/systemd.service &>>$LOG
-  stat$?
+  stat $?
 
   print "copy systemd file"
   mv /home/roboshop/$COMPONENT/systemd.service /etc/systemd/system/$COMPONENT.service
-  stat$?
+  stat $?
 
   print "start catalogue service"
   systemctl daemon-reload &>>$LOG && systemctl restart $COMPONENT &>>$LOG && systemctl enable $COMPONENT &>>$LOG
-  stat$?
+  stat $?
   fi
 
 }
@@ -84,7 +84,9 @@ if[ '$1' == "/home/roboshop" ]; then
   print "copy content"
  mv /home/roboshop/$COMPONENT-main /home/roboshop/$COMPONENT
  stat $?
+
  fi
+
 }
 Nodejs() {
 
@@ -107,5 +109,7 @@ npm install --unsafe-perm &>>$LOG
 stat $?
 
 SYSTEMD
+
 fi
+
 }
