@@ -1,7 +1,7 @@
 #!/bin/bash
 
 source common.sh
-exit
+
 COMPONENT_NAME=RabbitMQ
 COMPONENT=rabbitmq
 
