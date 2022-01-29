@@ -119,10 +119,8 @@ DOWNLOAD '/home/roboshop'
 
 print "Install the dependencies"
 cd /home/roboshop/payment
- pip3 install -r requirements.txt
-Note: Above command may fail with permission denied, So run as root user
-
-Update the roboshop user and group id in payment.ini file.
+ pip3 install -r requirements.txt &>>$LOG
+stat $?
 
 SYSTEMD
 
