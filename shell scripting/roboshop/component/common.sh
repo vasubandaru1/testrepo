@@ -46,8 +46,6 @@ SYSTEMD() {
   systemctl daemon-reload &>>$LOG && systemctl restart $COMPONENT &>>$LOG && systemctl enable $COMPONENT &>>$LOG
   stat $?
 
-fi
-
 }
 
 MAVEN() {
