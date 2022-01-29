@@ -84,8 +84,8 @@ if [ '$1' == "/home/roboshop" ]; then
  stat $?
 
 }
-Nodejs() {
 
+Nodejs() {
 print "Install Nodejs"
 yum install -y gcc-c++ make &>>$LOG
 curl -s -L https://rpm.nodesource.com/setup_6.x | sudo -E bash - &>>$LOG
