@@ -6,7 +6,10 @@ COMPONENT_NAME=RabbitMQ
 COMPONENT=rabbitmq
 
 print "Install erlang"
+yum list installed | grep erlang &>>$LOG
+if [ $1 -ne 0 ]; then
  yum install https://github.com/rabbitmq/erlang-rpm/releases/download/v23.2.6/erlang-23.2.6-1.el7.x86_64.rpm -y &>>$LOG
+ fi
  stat $?
 
 print "Setup YUM repositories for RabbitMQ "
