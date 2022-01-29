@@ -76,7 +76,7 @@ print "Extract $COMPONENT_NAME"
 unzip -o -d $1 /tmp/${COMPONENT}.zip &>>$LOG
  stat $?
 
-if [ '$1' = "/home/roboshop" ]; then
+if [ "$1" = "/home/roboshop" ]; then
   print "Remove old content"
   rm -rf /home/roboshop/$COMPONENT
   stat $?
@@ -84,7 +84,6 @@ if [ '$1' = "/home/roboshop" ]; then
   print "copy content"
  mv /home/roboshop/$COMPONENT-main /home/roboshop/$COMPONENT
  stat $?
-
 }
 
 Nodejs() {
