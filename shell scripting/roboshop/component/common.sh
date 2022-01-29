@@ -64,8 +64,6 @@ MAVEN() {
 
  SYSTEMD
 
- fi
-
   }
 
 DOWNLOAD() {
@@ -84,8 +82,6 @@ if[ '$1' == "/home/roboshop" ]; then
   print "copy content"
  mv /home/roboshop/$COMPONENT-main /home/roboshop/$COMPONENT
  stat $?
-
- fi
 
 }
 Nodejs() {
@@ -109,7 +105,5 @@ npm install --unsafe-perm &>>$LOG
 stat $?
 
 SYSTEMD
-
-fi
 
 }
